@@ -41,7 +41,7 @@ class CustomerCSVExport extends CSVExport
         $this->selectCustomFields(db_prefix() . 'clients.userid');
         $this->ci->db->join(db_prefix() . 'contacts', db_prefix() . 'contacts.userid = ' . db_prefix() . 'clients.userid AND is_primary = 1', 'left');
         $this->ci->db->join(db_prefix() . 'staff', db_prefix() . 'staff.staffid = ' . db_prefix() . 'clients.addedfrom', 'left');
-        $this->ci->db->join(db_prefix() . 'leads', db_prefix() . 'leads.id = ' . db_prefix() . 'clients.leadid', 'left');
+        $this->ci->db->join(db_prefix() . 'contract_opportunities', db_prefix() . 'contract_opportunities.id = ' . db_prefix() . 'clients.leadid', 'left');
         $this->ci->db->join(db_prefix() . 'currencies', db_prefix() . 'currencies.id = ' . db_prefix() . 'clients.default_currency', 'left');
         $this->applyDateFilter(db_prefix() . 'clients.datecreated');
 

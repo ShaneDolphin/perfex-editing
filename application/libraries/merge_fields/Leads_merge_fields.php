@@ -199,7 +199,7 @@ class Leads_merge_fields extends App_merge_fields
 
         if (is_numeric($id)) {
             $this->ci->db->where('id', $id);
-            $lead = $this->ci->db->get(db_prefix().'leads')->row();
+            $lead = $this->ci->db->get(db_prefix().'contract_opportunities')->row();
         } else {
             $lead = $id;
         }
@@ -238,7 +238,7 @@ class Leads_merge_fields extends App_merge_fields
             $fields['{lead_status}'] = _l('lead_lost');
         } else {
             $this->ci->db->select('name');
-            $this->ci->db->from(db_prefix().'leads_status');
+            $this->ci->db->from(db_prefix().'contract_opportunities_status');
             $this->ci->db->where('id', $lead->status);
             $status = $this->ci->db->get()->row();
             if ($status) {

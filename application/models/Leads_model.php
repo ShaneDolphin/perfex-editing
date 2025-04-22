@@ -25,7 +25,7 @@ class Leads_model extends App_Model
         $this->db->where($where);
         if (is_numeric($id)) {
             $this->db->where(db_prefix() . 'leads.id', $id);
-            $lead = $this->db->get(db_prefix() . 'leads')->row();
+            $lead = $this->db->get(db_prefix() . 'contract_opportunities')->row();
             if ($lead) {
                 if ($lead->from_form_id != 0) {
                     $lead->form_data = $this->get_form([
