@@ -1009,7 +1009,7 @@ class Clients_model extends App_Model
             $this->db->delete(db_prefix() . 'user_meta');
 
             $this->db->where('client_id', $id);
-            $this->db->update(db_prefix() . 'leads', ['client_id' => 0]);
+            $this->db->update(db_prefix() . 'contract_opportunities', ['client_id' => 0]);
 
             // Delete all projects
             $this->load->model('projects_model');

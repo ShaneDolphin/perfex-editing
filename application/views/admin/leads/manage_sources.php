@@ -31,7 +31,7 @@
                                             onclick="edit_source(this,<?= e($source['id']); ?>); return false"
                                             data-name="<?= e($source['name']); ?>"><?= e($source['name']); ?></a><br />
                                         <span class="text-muted">
-                                            <?= _l('leads_table_total', total_rows(db_prefix() . 'leads', ['source' => $source['id']])); ?>
+                                            <?= _l('leads_table_total', total_rows(db_prefix() . 'contract_opportunities', ['source' => $source['id']])); ?>
                                         </span>
                                     </td>
                                     <td>

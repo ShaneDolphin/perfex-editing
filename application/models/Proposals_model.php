@@ -914,7 +914,7 @@ class Proposals_model extends App_Model
             }
         } elseif ($rel_type = 'lead') {
             $this->db->where('id', $rel_id);
-            $_data       = $this->db->get(db_prefix() . 'leads')->row();
+            $_data       = $this->db->get(db_prefix() . 'contract_opportunities')->row();
             $data->phone = $_data->phonenumber;
 
             $data->is_using_company = false;

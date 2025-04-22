@@ -869,7 +869,7 @@ class Misc_model extends App_Model
         if (is_staff_member()) {
             // Leads
             $this->db->select();
-            $this->db->from(db_prefix() . 'leads');
+            $this->db->from(db_prefix() . 'contract_opportunities');
 
             if (!$has_permission_view) {
                 $this->db->where('(assigned = ' . get_staff_user_id() . ' OR addedfrom = ' . get_staff_user_id() . ' OR is_public=1)');

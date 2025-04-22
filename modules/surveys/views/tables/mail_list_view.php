@@ -71,7 +71,7 @@ if (is_numeric($id)) {
         array_push($aColumns, 'datecreated');
     } elseif ($id == 'leads') {
         array_push($aColumns, 'dateadded');
-        $sTable = db_prefix() . 'leads';
+        $sTable = db_prefix() . 'contract_opportunities';
     } else {
         $sTable = db_prefix() . 'contacts';
         array_push($aColumns, 'datecreated');

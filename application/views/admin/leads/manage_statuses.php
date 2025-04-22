@@ -35,7 +35,7 @@
                                             data-name="<?= e($status['name']); ?>"
                                             data-order="<?= e($status['statusorder']); ?>"><?= e($status['name']); ?></a><br />
                                         <span class="text-muted">
-                                            <?= _l('leads_table_total', total_rows(db_prefix() . 'leads', ['status' => $status['id']])); ?></span>
+                                            <?= _l('leads_table_total', total_rows(db_prefix() . 'contract_opportunities', ['status' => $status['id']])); ?></span>
                                     </td>
                                     <td>
                                         <div class="tw-flex tw-items-center tw-space-x-2">

@@ -493,7 +493,7 @@ class App_mail_template
         } elseif ($rel_type == 'lead') {
             $this->ci->db->select('default_language');
             $this->ci->db->where('id', $this->get_rel_id());
-            $lead = $this->ci->db->get(db_prefix() . 'leads')->row();
+            $lead = $this->ci->db->get(db_prefix() . 'contract_opportunities')->row();
         } elseif ($rel_type == 'proposal') {
             $this->ci->db->select('rel_type, rel_id');
             $this->ci->db->where('id', $this->get_rel_id());
@@ -502,7 +502,7 @@ class App_mail_template
                 $this->ci->db->select('default_language')
                 ->where('id', $proposal->rel_id);
 
-                $lead = $this->ci->db->get(db_prefix() . 'leads')->row();
+                $lead = $this->ci->db->get(db_prefix() . 'contract_opportunities')->row();
             } elseif ($proposal && $proposal->rel_type == 'customer') {
                 $customerDefault = get_client_default_language($proposal->rel_id);
                 if (!empty($customerDefault)) {

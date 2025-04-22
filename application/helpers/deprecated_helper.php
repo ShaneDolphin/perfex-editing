@@ -557,7 +557,7 @@ function get_email_template_language($template_slug, $email)
             } elseif ($class->get_rel_type() == 'lead') {
                 $CI->db->select('id, default_language')
             ->where('id', $class->get_rel_id());
-                $lead = $CI->db->get(db_prefix() . 'leads')->row();
+                $lead = $CI->db->get(db_prefix() . 'contract_opportunities')->row();
             }
         }
         if (isset($proposal) && $proposal && $proposal->rel_type == 'lead') {

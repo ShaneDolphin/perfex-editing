@@ -92,7 +92,7 @@ class Leads extends AdminController
                     'leadView' => $id ? $this->_get_lead_data($id) : [],
                 ]);
             } else {
-                $emailOriginal   = $this->db->select('email')->where('id', $id)->get(db_prefix() . 'leads')->row()->email;
+                $emailOriginal   = $this->db->select('email')->where('id', $id)->get(db_prefix() . 'contract_opportunities')->row()->email;
                 $proposalWarning = false;
                 $message         = '';
                 $success         = $this->leads_model->update($this->input->post(), $id);

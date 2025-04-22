@@ -1358,7 +1358,7 @@ class Cron_model extends App_Model
 
                         if (strpos($key, 'custom_field_') !== false) {
                             $lead_form_custom_fields[$field] = $val;
-                        } elseif ($this->db->field_exists($field, db_prefix() . 'leads')) {
+                        } elseif ($this->db->field_exists($field, db_prefix() . 'contract_opportunities')) {
                             $formFields[$field] = $val;
                         }
 
@@ -1461,7 +1461,7 @@ class Cron_model extends App_Model
                     // Not exists its okey.
                     // Now we need to check the leads table
                     $this->db->where('email', $fromAddress);
-                    $lead = $this->db->get(db_prefix() . 'leads')->row();
+                    $lead = $this->db->get(db_prefix() . 'contract_opportunities')->row();
 
                     $lead = hooks()->apply_filters('leads_email_integration_lead_check', $lead, $message);
 
@@ -1533,7 +1533,7 @@ class Cron_model extends App_Model
 
                     $lead_data = hooks()->apply_filters('before_insert_lead_from_email_integration', $lead_data);
 
-                    $this->db->insert(db_prefix() . 'leads', $lead_data);
+                    $this->db->insert(db_prefix() . 'contract_opportunities', $lead_data);
                     $insert_id = $this->db->insert_id();
                     if ($insert_id) {
                         foreach ($formFields as $field => $value) {
@@ -1558,7 +1558,7 @@ class Cron_model extends App_Model
                             }
 
                             $this->db->where('id', $insert_id);
-                            $this->db->update(db_prefix() . 'leads', [
+                            $this->db->update(db_prefix() . 'contract_opportunities', [
                             $field => $value,
                         ]);
                         }

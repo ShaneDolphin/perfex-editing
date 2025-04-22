@@ -344,7 +344,7 @@ class Forms extends ClientsController
                             'value' => $val,
                         ]);
                     } else {
-                        if ($this->db->field_exists($name, db_prefix() . 'leads')) {
+                        if ($this->db->field_exists($name, db_prefix() . 'contract_opportunities')) {
                             if ($name == 'country') {
                                 if (! is_numeric($val)) {
                                     if ($val == '') {
@@ -383,7 +383,7 @@ class Forms extends ClientsController
                     }
 
                     if (count($where) > 0) {
-                        $total = total_rows(db_prefix() . 'leads', $where);
+                        $total = total_rows(db_prefix() . 'contract_opportunities', $where);
 
                         $duplicateLead = false;
                         /**
@@ -393,7 +393,7 @@ class Forms extends ClientsController
                          */
                         if ($total == 1) {
                             $this->db->where($where);
-                            $duplicateLead = $this->db->get(db_prefix() . 'leads')->row();
+                            $duplicateLead = $this->db->get(db_prefix() . 'contract_opportunities')->row();
                         }
 
                         if ($total > 0) {
@@ -499,7 +499,7 @@ class Forms extends ClientsController
                     $regular_fields['dateadded']    = date('Y-m-d H:i:s');
                     $regular_fields['from_form_id'] = $form->id;
                     $regular_fields['is_public']    = $form->mark_public;
-                    $this->db->insert(db_prefix() . 'leads', $regular_fields);
+                    $this->db->insert(db_prefix() . 'contract_opportunities', $regular_fields);
                     $lead_id = $this->db->insert_id();
 
                     hooks()->do_action('lead_created', [

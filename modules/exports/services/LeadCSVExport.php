@@ -42,7 +42,7 @@ class LeadCSVExport extends CSVExport
         $this->ci->db->select(prefixed_table_fields_array(db_prefix() . 'leads', true, $this->excludedFields) . ", $select");
         $this->selectCustomFields(db_prefix() . 'leads.id');
         $this->ci->db->join(db_prefix() . 'leads_status', db_prefix() . 'leads_status.id=' . db_prefix() . 'leads.status', 'left');
-        $this->ci->db->join(db_prefix() . 'leads_sources', db_prefix() . 'leads_sources.id=' . db_prefix() . 'leads.source', 'left');
+        $this->ci->db->join(db_prefix() . 'contract_opportunities_sources', db_prefix() . 'contract_opportunities_sources.id=' . db_prefix() . 'contract_opportunities.source', 'left');
         $this->ci->db->join(db_prefix() . 'web_to_lead', db_prefix() . 'web_to_lead.id=' . db_prefix() . 'leads.from_form_id', 'left');
         $this->ci->db->join(db_prefix() . 'clients', db_prefix() . 'clients.userid = ' . db_prefix() . 'leads.client_id', 'left');
         $this->ci->db->join(db_prefix() . 'staff', db_prefix() . 'staff.staffid = ' . db_prefix() . 'leads.addedfrom', 'left');
